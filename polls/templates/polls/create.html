@@ -1,0 +1,40 @@
+{%extends 'polls/base.html'%}
+{% load crispy_forms_tags %}
+{%load static%}
+{%block content%}
+
+
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h2 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Какое же у тебя IQ</h2>
+        <img src="{%static 'images/iqtest.jpg'%}" class="col-lg-10 fs-4">
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5 ">
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary shadow">
+                {% csrf_token %}
+          <div class="form-floating mb-3">
+                {{ form.top_1|as_crispy_field }}
+          </div>
+          <div class="form-floating mb-3">
+                {{ form.top_2|as_crispy_field }}
+          </div>
+            <div class="form-floating mb-3">
+                {{ form.top_3|as_crispy_field }}
+          </div>
+            <div class="form-floating mb-3">
+                {{ form.top_4|as_crispy_field }}
+          </div>
+            <div class="form-floating mb-3">
+                {{ form.top_5|as_crispy_field }}
+          </div>
+
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Узнать результат</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">Данный проект никого не пытается оскорбить).</small>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{%endblock%}
